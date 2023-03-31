@@ -24,22 +24,22 @@
             <table class="table mb-0">
               <thead>
                 <tr>
-                  <th scope="col">Team Member</th>
+                
                   <th scope="col">Task</th>
                   <th scope="col">Priority</th>
                   <th scope="col">Actions</th>
                 </tr>
               </thead>
               <tbody>
+              <?php
+            //recupérer les données dans la table Taches
+            $result = $mysqli->query( "SELECT * FROM tasks");
+            while($obj = $result->fetch_object()){
+            ?>
                 <tr class="fw-normal">
-                  <th>
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-5.webp"
-                      class="shadow-1-strong rounded-circle" alt="avatar 1"
-                      style="width: 55px; height: auto;">
-                    <span class="ms-2">Alice Mayer</span>
-                  </th>
+                
                   <td class="align-middle">
-                    <span>Call Sam For payments</span>
+                    <span><?php echo $obj->task ; ?> </span>
                   </td>
                   <td class="align-middle">
                     <h6 class="mb-0"><span class="badge bg-danger">High priority</span></h6>
@@ -51,29 +51,12 @@
                         class="fas fa-trash-alt text-danger"></i></a>
                   </td>
                 </tr>
+            <?php
+            }
+            ?>
 
-                <th>
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/avatar-6.webp"
-                      class="shadow-1-strong rounded-circle" alt="avatar 1"
-                      style="width: 55px; height: auto;">
-                    <span class="ms-2">Yohan TURLET</span>
-                  </th>
-                  <td class="align-middle">
-                    <span>Montrer le resultat a Mr Gustave</span>
-                  </td>
-                  <td class="align-middle">
-                    <h6 class="mb-0"><span class="badge bg-danger">important</span></h6>
-                  </td>
-                  <td class="align-middle">
-                    <a href="#!" data-mdb-toggle="tooltip" title="Done"><i
-                        class="fas fa-check text-success me-3"></i></a>
-                    <a href="#!" data-mdb-toggle="tooltip" title="Remove"><i
-                        class="fas fa-trash-alt text-danger"></i></a>
-                  </td>
-                </tr>
-                <tr class="fw-normal">
-                
-                </tr>
+
+
               </tbody>
             </table>
 
